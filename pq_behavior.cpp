@@ -1,3 +1,4 @@
+// pq_behavior.cpp
 #include "common.h"
 #include "pq_algorithm.cpp"
 #include <fstream>
@@ -17,7 +18,7 @@ int main(int argc, char* argv[]) {
     }
 
     try {
-        // Start measuring time
+        // Start measuring total execution time
         auto start_time = std::chrono::high_resolution_clock::now();
 
         // Initialize PMEM
@@ -98,6 +99,17 @@ int main(int argc, char* argv[]) {
 
         std::cout << "Time taken for processing queries: " << query_duration.count() << " seconds" << std::endl;
         std::cout << "Total execution time: " << total_duration.count() << " seconds" << std::endl;
+
+        // Report average timings from ProductQuantizer
+        std::cout << "\n--- Timing Breakdown ---" << std::endl;
+        std::cout << "Average time for counting bit flips: " 
+                  << pq.get_average_count_bit_flips_time() * 1e6 << " microseconds" << std::endl;
+        std::cout << "Average time for encoding write data: " 
+                  << pq.get_average_encoding_time() * 1e6 << " microseconds" << std::endl;
+        std::cout << "Average time for calculating distance: " 
+                  << pq.get_average_distance_calculation_time() * 1e6 << " microseconds" << std::endl;
+        std::cout << "Average time for finding nearest page: " 
+                  << pq.get_average_find_nearest_page_time() * 1e6 << " microseconds" << std::endl;
 
         // Cleanup
         munmap(pmem, PMEM_FILE_SIZE);
