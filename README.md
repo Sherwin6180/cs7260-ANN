@@ -27,5 +27,7 @@ DISTRIBUTION options:
 
 ## Resources
 [Tutorial to emulate NVM on DRAM](https://docs.pmem.io/persistent-memory/getting-started-guide/creating-development-environments/linux-environments/linux-memmap)
+
 [Link to our presentation](https://www.canva.com/design/DAGWlymamH4/bNsZgnY8LqdD13K2v9_28Q/edit?utm_content=DAGWlymamH4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 [Introduction to Product Quantization](https://www.pinecone.io/learn/series/faiss/product-quantization/)
